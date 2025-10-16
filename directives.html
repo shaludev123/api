@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+    <title>click</title>
+  </head>
+  <body ng-controller="MainCtrl as vm">
+    <!-- ng-click -->
+    <h2>Click event</h2>
+    <input ng-model="vm.name" placeholder="enter your name" />
+    <button ng-click="vm.sayHello()">Click</button>
+    <p>{{vm.message}}</p>
+
+    <!-- ng-repeat -->
+    <div ng-init="fruits=['apple','mango','orange']">
+      <ul>
+        <li ng-repeat="f in fruits">{{$index+1}} . {{f}}</li>
+      </ul>
+    </div>
+
+    <!-- ng-if -->
+    <div ng-init="show=true">
+      <button ng-click="show=!show">Toggle</button>
+      <p ng-if="show">hello shalu</p>
+    </div>
+
+    <!-- ng-show/ ng-hide -->
+    <div ng-init="visible=true">
+      <button ng-click="visible=!visible">Toggle</button>
+      <p ng-show="visible">Show Me</p>
+      <p ng-hide="visible">Hide Me</p>
+    </div>
+
+    <script>
+      angular.module("myApp", []).controller("MainCtrl", function () {
+        const vm = this;
+
+        vm.name = "";
+        vm.message = "";
+
+        vm.sayHello = function () {
+          if (vm.name) {
+            vm.message = "hello " + vm.name;
+          } else {
+            vm.message = "input should not be empty";
+          }
+        };
+      });
+    </script>
+  </body>
+</html>
+
+<!-- AngularJS Expressions
+AngularJS Modules
+AngularJS Directives
+AngularJS Model
+AngularJS Data Binding
+AngularJS Controllers
+AngularJS Scopes
+AngularJS Filters
+AngularJS Http
+AngularJS Tables
+AngularJS DOM
+AngularJS Events
+AngularJS Forms
+AngularJS Validation
+AngularJS API
+AngularJS Routing
+AngularJS Application -->
